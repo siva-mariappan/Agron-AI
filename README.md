@@ -256,7 +256,7 @@ This project was developed by a collaborative team of agricultural robotics inno
 | **Siva** | Project Lead, AI/ML Engineer & Software Developer | https://github.com/siva-mariappan |
 | **Jai Bharath Kailash** | AI/ML Engineer & Computer Vision Engineer | https://github.com/Jazz2407 |
 | **Felix Rajeev Samuel** | Software Developer | [Paste GitHub link here] |
-| **Harish** | Robotics Engineer | [Paste GitHub link here] |
+| **Harish** | Robotics Engineer | https://github.com/MHarish07 |
 | **Samrat Eswar** | Embedded Systems Engineer | [Paste GitHub link here] |
 
 ### Contributions
