@@ -43,9 +43,9 @@ The system reduces human labor, optimizes yield, and ensures sustainability thro
 **Detection Results:**
 
 <div align="center">
-  <img src="Images/Tomatodetection01" alt="Ripe Tomatoes Sample 01" width="45%">
-  <img src="Images/Tomatodetection02" alt="Ripe Tomatoes Sample 02" width="45%">
-  <img src="Images/Tomatodetection03" alt="Ripe Tomatoes Sample 03" width="45%">
+  <img src="Images/Tomatodetection01.jpg" alt="Ripe Tomatoes Sample 01" width="45%">
+  <img src="Images/Tomatodetection02.jpg" alt="Ripe Tomatoes Sample 02" width="45%">
+  <img src="Images/Tomatodetection03.jpg" alt="Ripe Tomatoes Sample 03" width="45%">
 </div>
 
 *Real-time tomato ripeness classification using computer vision*
