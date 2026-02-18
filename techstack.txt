@@ -1,0 +1,831 @@
+================================================================================
+                    AGRON AI - TECHNOLOGY STACK
+        Complete Software & Hardware Component Listing
+================================================================================
+
+PROJECT: Agron AI - Autonomous Agricultural Robotics System
+PURPOSE: AI-Powered Tomato Ripeness Detection and Precision Harvesting
+
+================================================================================
+                        HARDWARE COMPONENTS
+================================================================================
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                          COMPUTING & PROCESSING                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+1. RASPBERRY PI
+   Type: Single-Board Computer
+   Model: Raspberry Pi 4/3B+
+   Purpose: Main processing unit for AI inference and system control
+   Features:
+   - Runs Raspberry Pi OS (Debian-based Linux)
+   - GPIO pin control for hardware interfaces
+   - USB ports for peripheral connections
+   - WiFi/Bluetooth connectivity
+
+2. RASPBERRY PI CAMERA MODULE
+   Type: Camera Sensor
+   Model: Pi Camera V2 (8MP) or HQ Camera
+   Purpose: Real-time image capture for object detection
+   Features:
+   - CSI interface connection to Raspberry Pi
+   - 1080p video recording
+   - Low latency image capture
+   - Wide angle lens support
+
+3. NVIDIA JETSON NANO (Future Upgrade)
+   Type: AI Computing Platform
+   Purpose: Enhanced AI processing and real-time inference
+   Features:
+   - GPU acceleration for deep learning
+   - CUDA cores for parallel processing
+   - 4GB RAM for complex models
+   - 128-core Maxwell GPU
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                       ACTUATORS & MOTORS                                     │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+4. MG996R SERVO MOTOR
+   Type: High-Torque Servo Motor
+   Quantity: Multiple (for robotic arm joints)
+   Purpose: Robotic arm actuation for precision harvesting
+   Specifications:
+   - Operating Voltage: 4.8V - 7.2V
+   - Torque: 9.4 kg/cm (4.8V), 11 kg/cm (6V)
+   - Speed: 0.17 sec/60° (4.8V), 0.14 sec/60° (6V)
+   - Rotation: 120° typical, 180° maximum
+   - Control: PWM signal (50Hz, 1ms-2ms pulse width)
+   Usage: Elbow, shoulder, and gripper control
+
+5. SG90 SERVO MOTOR
+   Type: Micro Servo Motor
+   Quantity: Multiple (for rover movement)
+   Purpose: Rover movement, steering, and fine control
+   Specifications:
+   - Operating Voltage: 4.8V - 6V
+   - Torque: 1.8 kg/cm (4.8V), 2.5 kg/cm (6V)
+   - Speed: 0.1 sec/60° (4.8V), 0.08 sec/60° (6V)
+   - Rotation: 180°
+   - Weight: 9g
+   - Control: PWM signal
+   Usage: Steering mechanism, camera pan/tilt, fine movements
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                      MOTOR CONTROL & DRIVERS                                 │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+6. L293D MOTOR DRIVER IC
+   Type: Dual H-Bridge Motor Driver
+   Purpose: Motor control and power distribution for servos
+   Specifications:
+   - Dual H-bridge driver
+   - Output current: 600mA per channel
+   - Peak current: 1.2A per channel
+   - Operating voltage: 4.5V to 36V
+   - 16-pin DIP package
+   - Built-in protection diodes
+   Features:
+   - Bidirectional motor control
+   - Speed control via PWM
+   - Multiple motor control capability
+   Usage: Controls SG90 and MG996R servo motors
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                        SENSORS & DETECTION                                   │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+7. ULTRASONIC SENSOR (HC-SR04)
+   Type: Distance Measurement Sensor
+   Purpose: Obstacle detection and autonomous navigation
+   Specifications:
+   - Operating Voltage: 5V DC
+   - Measuring Range: 2cm to 400cm
+   - Measuring Angle: 15°
+   - Frequency: 40 kHz
+   - Accuracy: ±3mm
+   Features:
+   - Non-contact measurement
+   - Trigger and Echo pins
+   - Real-time distance calculation
+   Usage: Collision avoidance, path planning, basket positioning
+
+8. SOIL MOISTURE SENSOR (IoT-based)
+   Type: Capacitive/Resistive Moisture Sensor
+   Purpose: Automated irrigation management
+   Specifications:
+   - Operating Voltage: 3.3V - 5V
+   - Output: Analog voltage (0-3.3V or 0-5V)
+   - Measuring Range: 0-100% moisture
+   Features:
+   - Real-time soil moisture monitoring
+   - Corrosion-resistant probe
+   Usage: Triggers irrigation system based on soil conditions
+
+9. WEATHER SENSORS (Optional)
+   Type: Temperature, Humidity, Rain Sensor
+   Purpose: Environmental monitoring for irrigation decisions
+   Components:
+   - DHT22 (Temperature & Humidity)
+   - Rain Drop Sensor
+   - Light Intensity Sensor (LDR)
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    COMMUNICATION MODULES                                     │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+10. HC-05 BLUETOOTH MODULE
+    Type: Wireless Serial Communication Module
+    Purpose: Remote control and data transmission
+    Specifications:
+    - Bluetooth Version: 2.0 + EDR
+    - Frequency: 2.4 GHz ISM band
+    - Range: 10 meters (Class 2)
+    - Operating Voltage: 3.3V (with 5V tolerance)
+    - Baud Rate: 9600 bps (default, configurable)
+    - Interface: UART (TX, RX)
+    Features:
+    - Master/Slave mode
+    - AT command configuration
+    - LED status indicators
+    - Auto-connect capability
+    Usage: Mobile app control, data logging, remote monitoring
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    POWER MANAGEMENT SYSTEM                                   │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+11. 3200mAh LITHIUM-ION BATTERY
+    Type: Rechargeable Battery Pack
+    Purpose: Main power source for rover system
+    Specifications:
+    - Capacity: 3200mAh
+    - Voltage: 3.7V nominal (per cell)
+    - Configuration: 2S or 3S (7.4V or 11.1V)
+    - Chemistry: Lithium-ion or LiPo
+    - Discharge Rate: 1C to 2C
+    Features:
+    - Rechargeable via TP4056
+    - Over-discharge protection
+    - 4-6 hours runtime (8-10 hours with solar)
+    Usage: Powers Raspberry Pi, motors, sensors, and peripherals
+
+12. TP4056 MICRO USB CHARGING BOARD
+    Type: Battery Charging Module
+    Purpose: Lithium battery charging circuit
+    Specifications:
+    - Input Voltage: 5V DC (Micro USB)
+    - Charging Current: 1A (adjustable via resistor)
+    - Battery Type: Single cell Li-ion/LiPo (4.2V)
+    - Protection Features:
+      * Over-charge protection
+      * Over-discharge protection
+      * Short-circuit protection
+      * Over-current protection
+    Features:
+    - LED indicators (charging/charged)
+    - Micro USB input
+    - Compact PCB design
+    Usage: Charges 3200mAh battery from solar panel or wall adapter
+
+13. STEP-UP CONVERTER (DC-DC BOOST CONVERTER)
+    Type: Voltage Regulator Module
+    Purpose: Voltage regulation for consistent power supply
+    Specifications:
+    - Input Voltage: 3V - 5V
+    - Output Voltage: 5V, 9V, or 12V (adjustable)
+    - Output Current: 2A (typical)
+    - Efficiency: 85-95%
+    - Protection: Over-current, over-temperature
+    Features:
+    - Adjustable output via potentiometer
+    - High efficiency switching regulator
+    - Stable output under varying loads
+    Usage: Boosts battery voltage to required levels for motors and Pi
+
+14. SOLAR PANELS
+    Type: Photovoltaic Panel
+    Purpose: Renewable energy source for sustainable operations
+    Specifications:
+    - Power Output: 5W - 10W
+    - Voltage: 5V - 12V
+    - Current: 1A - 2A
+    - Type: Polycrystalline or Monocrystalline
+    Features:
+    - Weather-resistant encapsulation
+    - Mounting brackets
+    - Diode for reverse current protection
+    Usage: Charges battery via TP4056, extends operation time
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    MECHANICAL COMPONENTS                                     │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+15. ROVER CHASSIS
+    Type: Mobile Platform Base
+    Purpose: Vehicle structure for mobility
+    Components:
+    - Aluminum or plastic frame
+    - 4 wheels (rubber tires)
+    - Motor mounts
+    - Battery compartment
+    - Electronics mounting plate
+
+16. ROBOTIC ARM
+    Type: Multi-DOF Articulated Arm
+    Purpose: Precision harvesting mechanism
+    Components:
+    - 3-5 joints (shoulder, elbow, wrist)
+    - MG996R servos at each joint
+    - Gripper mechanism
+    - Mounting bracket
+    - Cable management
+    Specifications:
+    - Reach: 30-50 cm
+    - Payload: 200-500g
+    - Degrees of Freedom: 3-5
+
+17. GRIPPER/END EFFECTOR
+    Type: Soft Gripper or Mechanical Gripper
+    Purpose: Gentle tomato grasping
+    Features:
+    - Soft silicone pads to prevent damage
+    - Servo-actuated fingers
+    - Force sensing (optional)
+
+18. WEIGHT-SENSITIVE BASKET
+    Type: Storage Container with Load Cell
+    Purpose: Harvest collection and weight monitoring
+    Components:
+    - Plastic basket/container
+    - Load cell sensor (5kg or 10kg capacity)
+    - HX711 load cell amplifier
+    Features:
+    - Alerts when basket is full
+    - Weight-based harvest tracking
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                        MISCELLANEOUS HARDWARE                                │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+19. CONNECTING WIRES
+    - Jumper wires (Male-to-Male, Male-to-Female, Female-to-Female)
+    - Servo extension cables
+    - Power cables (thicker gauge for high current)
+
+20. BREADBOARD/PCB
+    - For prototyping and circuit connections
+    - Custom PCB for final product
+
+21. MOUNTING HARDWARE
+    - Screws, nuts, bolts
+    - Standoffs
+    - Brackets
+    - Cable ties
+
+
+================================================================================
+                        SOFTWARE COMPONENTS
+================================================================================
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    OPERATING SYSTEM & BASE SOFTWARE                          │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+1. RASPBERRY PI OS (FORMERLY RASPBIAN)
+   Type: Linux Distribution
+   Version: Debian-based (Bullseye or Bookworm)
+   Purpose: Operating system for Raspberry Pi
+   Features:
+   - ARM-optimized Linux kernel
+   - GPIO library support
+   - Pre-installed Python
+   - Package manager (apt)
+   - Desktop environment (optional)
+
+2. PYTHON
+   Version: 3.8 or higher
+   Purpose: Primary programming language
+   Usage:
+   - Machine learning model training and inference
+   - Computer vision processing
+   - Hardware control (GPIO)
+   - System automation scripts
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    MACHINE LEARNING FRAMEWORKS                               │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+3. TENSORFLOW
+   Version: 2.x
+   Type: Deep Learning Framework
+   Purpose: Neural network training and inference
+   Usage:
+   - CNN model architecture
+   - Model training (tensor.py)
+   - Model deployment
+   Installation: pip install tensorflow
+
+4. KERAS
+   Type: High-Level Neural Network API
+   Purpose: Simplified deep learning model building
+   Usage:
+   - Sequential model creation
+   - Layer definitions
+   - Model compilation and training
+   - Built into TensorFlow 2.x
+
+5. YOLO (You Only Look Once)
+   Version: YOLOv5, YOLOv8
+   Type: Real-Time Object Detection Framework
+   Purpose: Tomato detection and localization
+   Usage:
+   - Dataset annotation format
+   - Multi-object detection
+   - Bounding box generation
+   Implementation: Ultralytics YOLOv5/v8 or Darknet
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    COMPUTER VISION LIBRARIES                                 │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+6. OPENCV (Open Source Computer Vision Library)
+   Version: 4.x
+   Purpose: Image processing and computer vision
+   Usage:
+   - Image reading and preprocessing
+   - Color space conversion (BGR to HSV)
+   - Contour detection
+   - Image resizing and normalization
+   - Bounding box drawing
+   - Video capture from camera
+   - Real-time frame processing
+   Installation: pip install opencv-python
+
+7. PILLOW (PIL)
+   Type: Python Imaging Library
+   Purpose: Image manipulation
+   Usage:
+   - Image loading and saving
+   - Format conversion
+   - Basic image operations
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    DATA PROCESSING LIBRARIES                                 │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+8. NUMPY
+   Version: 1.x
+   Type: Numerical Computing Library
+   Purpose: Array operations and mathematical computations
+   Usage:
+   - Image data as numpy arrays
+   - Matrix operations
+   - Mathematical transformations
+   - Data normalization
+   Installation: pip install numpy
+
+9. SCIKIT-LEARN
+   Version: 1.x
+   Type: Machine Learning Library
+   Purpose: Data preprocessing and utilities
+   Usage:
+   - Train-test split (train_test_split)
+   - Data normalization
+   - Evaluation metrics
+   Installation: pip install scikit-learn
+
+10. PANDAS (Optional)
+    Type: Data Analysis Library
+    Purpose: Data manipulation and CSV handling
+    Usage:
+    - Dataset management
+    - Harvest data logging
+    Installation: pip install pandas
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    HARDWARE INTERFACE LIBRARIES                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+11. RPi.GPIO
+    Type: Raspberry Pi GPIO Library
+    Purpose: Hardware pin control
+    Usage:
+    - Digital I/O control
+    - PWM signal generation for servos
+    - Sensor reading (ultrasonic, moisture)
+    Installation: pip install RPi.GPIO
+    (Pre-installed on Raspberry Pi OS)
+
+12. GPIOZERO
+    Type: Simplified GPIO Library
+    Purpose: Easy hardware control
+    Usage:
+    - Servo motor control
+    - Sensor interface
+    - LED control
+    Installation: pip install gpiozero
+
+13. PIGPIO
+    Type: Advanced GPIO Library
+    Purpose: Precise PWM control
+    Usage:
+    - Hardware PWM for smooth servo control
+    - Better timing accuracy
+    Installation: pip install pigpio
+
+14. PYSERIAL
+    Type: Serial Communication Library
+    Purpose: UART communication
+    Usage:
+    - HC-05 Bluetooth communication
+    - Serial debugging
+    - Data transmission
+    Installation: pip install pyserial
+
+15. SMBUS / I2C LIBRARIES
+    Type: I2C Protocol Library
+    Purpose: I2C sensor communication
+    Usage:
+    - Communication with I2C sensors
+    - Load cell amplifier (HX711)
+    Installation: pip install smbus
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    WEB DEVELOPMENT TECHNOLOGIES                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+16. HTML5
+    Type: Markup Language
+    Purpose: Web page structure
+    Usage:
+    - Sign-up page (sample3.html)
+    - Dashboard interface
+    - Forms and inputs
+
+17. CSS3
+    Type: Styling Language
+    Purpose: Web design and layout
+    Usage:
+    - Responsive design
+    - Animations (clouds, sun)
+    - Gradients and styling
+    - Media queries
+
+18. JAVASCRIPT
+    Type: Client-Side Scripting Language
+    Purpose: Web interactivity
+    Usage:
+    - Form validation
+    - Password visibility toggle
+    - Event handling
+    - AJAX requests
+
+19. TYPESCRIPT
+    Type: Typed JavaScript Superset
+    Purpose: Type-safe web development
+    Usage:
+    - Techstack.tsx component
+    - React application development
+    - Interface definitions
+
+20. REACT
+    Type: JavaScript UI Library
+    Purpose: Modern web application framework
+    Usage:
+    - Component-based UI
+    - Dashboard development
+    - Real-time data visualization
+    Installation: npm install react react-dom
+
+21. NODE.JS (Optional)
+    Type: JavaScript Runtime
+    Purpose: Backend server
+    Usage:
+    - API server for mobile app
+    - WebSocket for real-time updates
+    - File handling
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    CLOUD & IoT PLATFORMS                                     │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+22. CLOUD STORAGE SERVICES
+    Options: AWS S3, Google Cloud Storage, Firebase
+    Purpose: Data storage and management
+    Usage:
+    - Image storage
+    - Harvest data logs
+    - Model backups
+    - User data
+
+23. IoT PLATFORMS
+    Options: ThingsBoard, Blynk, AWS IoT Core
+    Purpose: Device management and monitoring
+    Usage:
+    - Real-time sensor data visualization
+    - Remote device control
+    - Data analytics
+    - Alerts and notifications
+
+24. MQTT PROTOCOL
+    Type: Lightweight IoT Protocol
+    Purpose: Message publishing and subscribing
+    Usage:
+    - Real-time data transmission
+    - Command sending
+    - Status updates
+    Library: pip install paho-mqtt
+
+25. REST API
+    Type: Web API Architecture
+    Purpose: Client-server communication
+    Usage:
+    - Mobile app data exchange
+    - Dashboard updates
+    - Remote commands
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    MOBILE APPLICATION                                        │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+26. MOBILE APP FRAMEWORKS
+    Options:
+    - React Native (JavaScript/TypeScript)
+    - Flutter (Dart)
+    - Native (Swift/Kotlin)
+    Purpose: Remote monitoring and control app
+    Features:
+    - Real-time video feed
+    - Manual control interface
+    - Harvest statistics
+    - Rover status monitoring
+    - Bluetooth connectivity
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    VERSION CONTROL & DEVELOPMENT TOOLS                       │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+27. GIT
+    Type: Version Control System
+    Purpose: Source code management
+    Usage:
+    - Code versioning
+    - Collaboration
+    - Branch management
+    - Change tracking
+
+28. GITHUB
+    Type: Code Hosting Platform
+    Purpose: Repository hosting
+    Usage:
+    - Remote repository
+    - Collaboration
+    - Issue tracking
+    - Documentation hosting
+
+29. JUPYTER NOTEBOOK (Optional)
+    Type: Interactive Development Environment
+    Purpose: Experimentation and visualization
+    Usage:
+    - Model training experiments
+    - Data visualization
+    - Documentation
+    Installation: pip install jupyter
+
+30. VS CODE / IDE
+    Type: Code Editor
+    Purpose: Development environment
+    Features:
+    - Syntax highlighting
+    - Debugging
+    - Git integration
+    - Extensions
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    UTILITIES & HELPER TOOLS                                  │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+31. GLOB
+    Type: Python Built-in Module
+    Purpose: File path pattern matching
+    Usage:
+    - Loading images from dataset
+    - File searching
+
+32. OS
+    Type: Python Built-in Module
+    Purpose: Operating system interface
+    Usage:
+    - File path operations
+    - Directory management
+    - System commands
+
+33. TIME
+    Type: Python Built-in Module
+    Purpose: Time-related functions
+    Usage:
+    - Delays
+    - Timestamps
+    - Performance measurement
+
+34. THREADING
+    Type: Python Built-in Module
+    Purpose: Parallel processing
+    Usage:
+    - Simultaneous camera and motor control
+    - Background tasks
+
+35. LOGGING
+    Type: Python Built-in Module
+    Purpose: Application logging
+    Usage:
+    - Debug messages
+    - Error tracking
+    - System events
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    DATA ANNOTATION & LABELING                                │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+36. LABELIMG
+    Type: Image Annotation Tool
+    Purpose: Creating YOLO format labels
+    Usage:
+    - Manual bounding box annotation
+    - Dataset preparation
+    Installation: pip install labelImg
+
+37. ROBOFLOW (Optional)
+    Type: Online Annotation Platform
+    Purpose: Dataset management and augmentation
+    Features:
+    - Web-based annotation
+    - Data augmentation
+    - Format conversion
+
+
+================================================================================
+                        COMMUNICATION PROTOCOLS
+================================================================================
+
+1. UART (Universal Asynchronous Receiver-Transmitter)
+   - HC-05 Bluetooth communication
+   - Serial debugging
+
+2. I2C (Inter-Integrated Circuit)
+   - Sensor communication
+   - Load cell amplifier
+
+3. PWM (Pulse Width Modulation)
+   - Servo motor control
+   - Speed control
+
+4. SPI (Serial Peripheral Interface)
+   - High-speed sensor communication (optional)
+
+5. HTTP/HTTPS
+   - Web server communication
+   - API requests
+
+6. MQTT (Message Queuing Telemetry Transport)
+   - IoT device messaging
+   - Real-time updates
+
+7. BLUETOOTH
+   - Wireless communication (HC-05)
+   - Mobile app control
+
+
+================================================================================
+                        FILE FORMATS & DATA TYPES
+================================================================================
+
+1. IMAGE FORMATS
+   - JPEG (.jpg, .jpeg) - Compressed images
+   - PNG (.png) - Lossless images
+   - BMP (.bmp) - Bitmap images
+
+2. MODEL FORMATS
+   - HDF5 (.h5) - Keras model format
+   - TFLite (.tflite) - TensorFlow Lite for edge deployment
+   - ONNX (.onnx) - Open Neural Network Exchange
+
+3. DATA FORMATS
+   - TXT (.txt) - YOLO annotation format
+   - CSV (.csv) - Harvest data logs
+   - JSON (.json) - Configuration files, API data
+
+4. VIDEO FORMATS
+   - MP4 (.mp4) - Recorded video
+   - AVI (.avi) - Raw video format
+
+
+================================================================================
+                        SYSTEM ARCHITECTURE SUMMARY
+================================================================================
+
+LAYER 1: HARDWARE LAYER
+├── Raspberry Pi (Computing)
+├── Pi Camera (Vision)
+├── Servo Motors (Actuation)
+├── Sensors (Perception)
+├── Power System (Energy)
+└── Communication Modules (Connectivity)
+
+LAYER 2: EMBEDDED SOFTWARE LAYER
+├── Raspberry Pi OS (Operating System)
+├── GPIO Libraries (Hardware Interface)
+├── Serial Communication (Data Transfer)
+└── Motor Control (PWM Drivers)
+
+LAYER 3: AI/ML LAYER
+├── TensorFlow/Keras (Deep Learning)
+├── OpenCV (Computer Vision)
+├── YOLO (Object Detection)
+└── Trained Models (Inference)
+
+LAYER 4: APPLICATION LAYER
+├── Real-time Detection (demo1.py)
+├── Model Training (tensor.py)
+├── Control Logic (Autonomous Navigation)
+└── Data Processing (Image & Sensor)
+
+LAYER 5: CLOUD & INTERFACE LAYER
+├── Web Dashboard (HTML/CSS/JS)
+├── Mobile App (React Native/Flutter)
+├── Cloud Storage (Data Management)
+├── IoT Platform (Real-time Monitoring)
+└── API Server (Communication)
+
+
+================================================================================
+                        INSTALLATION COMMANDS
+================================================================================
+
+# Python Dependencies
+pip install tensorflow opencv-python numpy scikit-learn
+pip install RPi.GPIO gpiozero pigpio pyserial
+pip install paho-mqtt
+pip install pandas matplotlib (optional)
+
+# System Updates
+sudo apt-get update
+sudo apt-get upgrade
+
+# Enable I2C, SPI, Camera
+sudo raspi-config
+# Navigate to Interface Options and enable required interfaces
+
+# Install Git
+sudo apt-get install git
+
+# Install Node.js (for web development)
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+
+================================================================================
+                        POWER REQUIREMENTS
+================================================================================
+
+COMPONENT                    VOLTAGE    CURRENT    POWER
+---------------------------------------------------------
+Raspberry Pi 4               5V         3A         15W
+Raspberry Pi Camera          3.3V       250mA      0.83W
+MG996R Servo (x4)           6V         1.2A each  7.2W each
+SG90 Servo (x4)             5V         500mA each 2.5W each
+HC-05 Bluetooth             3.3V       50mA       0.165W
+L293D Motor Driver          5V         600mA      3W
+Ultrasonic Sensor           5V         15mA       0.075W
+---------------------------------------------------------
+TOTAL (Approximate)                    ~10-12A    60-70W
+
+
+================================================================================
+                        END OF TECHNOLOGY STACK
+================================================================================
+
+This comprehensive technology stack combines hardware and software to create
+an intelligent, autonomous agricultural robotics system capable of precision
+harvesting, real-time monitoring, and sustainable farming operations.
+
+For detailed documentation, see README.md and project_overview.txt
