@@ -228,9 +228,12 @@ The global precision agriculture market is projected to grow to **$20+ billion b
 **Detection Results:**
 
 <div align="center">
-  <img src="Images/image09.jpeg" alt="01" width="45%">
+  <img src="Images/image01.jpeg" alt="01" width="45%">
   <img src="Images/image02.jpeg" alt="02" width="45%">
   <img src="Images/image03.jpeg" alt="03" width="45%">
+  <img src="Images/image04.jpeg" alt="04" width="45%">
+  <img src="Images/image05.jpeg" alt="05" width="45%">
+  <img src="Images/image06.jpeg" alt="06" width="45%">
 </div>
 
 
