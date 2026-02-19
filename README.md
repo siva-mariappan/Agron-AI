@@ -225,6 +225,13 @@ The global precision agriculture market is projected to grow to **$20+ billion b
 - Environmental advocates
 - Government agencies
 
+# Rover Design Diagram :
+
+![Design Diagram 1](Images/image01.jpeg)
+
+
+
+
 ## Future Upgrades
 
 ### Phase 1 (Current Development)
